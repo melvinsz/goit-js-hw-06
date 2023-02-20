@@ -14,6 +14,17 @@
 //     .padStart(6, 0)}`;
 // }
 
+const changeColorBtnRef = document.querySelector(".change-color");
+const colorNameRef = document.querySelector(".color");
+
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
 }
+function changeColor() {
+  colorNameRef.textContent = getRandomHexColor();
+  document.body.style.backgroundColor = getRandomHexColor();
+}
+
+changeColorBtnRef.addEventListener("click", changeColor);
